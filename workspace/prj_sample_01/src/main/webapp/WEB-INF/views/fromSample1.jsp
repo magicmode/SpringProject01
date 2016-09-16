@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,11 +8,11 @@
 </head>
 <body>
 	<form name="from" method="POST" action="formActionAnn02">
-		<input type="text" id="id" name="id">
-		<input type="text" id="name" name="name">
-		<input type="text" id="address" name="address">
-		<input type="submit" value="Àü¼Û">&nbsp;
-		<input type="reset" value="Ãë¼Ò">
+		<input type="text" id="id" name="id"><br>
+		<input type="text" id="name" name="name"><br>
+		<input type="text" id="address" name="address"><br>
+		<input type="submit" value="ì „ì†¡">&nbsp;
+		<input type="reset" value="ì·¨ì†Œ">
 	</form>
 </body>
 </html>

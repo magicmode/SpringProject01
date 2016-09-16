@@ -20,7 +20,7 @@ public class FormActionController {
 	@RequestMapping("/fromSample1")
 	public void formSample(){}
 	
-	// 01. Æû ÄÁÆ®·Ñ ( ¼­ºí¸´ ¹æ½Ä )
+	// 01. í¼ ì»¨íŠ¸ë¡¤ ( ì„œë¸”ë¦¿ ë°©ì‹ )!
 	@RequestMapping("/formAction")
 	public void formAction(HttpServletRequest request,
 							HttpServletResponse response) throws IOException {
@@ -31,7 +31,7 @@ public class FormActionController {
 		out.println("id: " + id);
 	}
 	
-	// 02. Æû ÄÁÆ®·Ñ ( ¾î³ëÅ×ÀÌ¼Ç È°¿ë ¹æ½Ä - @RequestParam )
+	// 02. í¼ ì»¨íŠ¸ë¡¤ ( ì–´ë…¸í…Œì´ì…˜ ë°©ì‹ - @RequestParam )!
 	@RequestMapping("/formActionAnn01")
 	public String formAction(@RequestParam("id") String id,
 							 @RequestParam("name") String name,
@@ -44,7 +44,7 @@ public class FormActionController {
 		return "formAction";
 	}
 	
-	// 03. Æû ÄÁÆ®·Ñ ( ¾î³ëÅ×ÀÌ¼Ç È°¿ë ¹æ½Ä - @RequestParam À»  Map ÇüÅÂ·Î)
+	// 03. í¼ ì»¨íŠ¸ë¡¤ ( ì–´ë…¸í…Œì´ì…˜ ë°©ì‹ - @RequestParam ì˜  Map í™œìš©)!
 	@RequestMapping("/formActionAnn02")
 	public String formAction(@RequestParam Map<String,String> params){
 		
@@ -54,13 +54,13 @@ public class FormActionController {
 		
 		Set<Entry<String,String>> set =params.entrySet();
 		
-		// ÀÌÅÍ·¹ÀÌÅÍ Æ÷ ·çÇÁ
+		// ì´í„°ë ˆì´í„° í¬ ë£¨í”„
 		for (Iterator iterator = set.iterator(); iterator.hasNext();) {
 			Entry<String, String> entry = (Entry<String, String>) iterator.next();
 			System.out.println(entry.getKey() + "=" + entry.getValue());
 		}
 		
-		// ÀÎÇì½ºÆ® Æ÷ ·çÇÁ
+		// ì¸í—¤ìŠ¤íŠ¸ í¬ ë£¨í”„
 		for (Entry<String, String> entry : set) {
 			System.out.println(entry.getKey() + ":" + entry.getValue());
 		}
