@@ -1,7 +1,6 @@
 package com.javateam.sampleprj01;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -11,10 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.javateam.model.Member;
 
@@ -25,14 +26,20 @@ public class FormActionController {
 	public void formSample(){}
 	
 	// 01. 폼 컨트롤 ( 서블릿 방식 )!
-	@RequestMapping("/formAction")
-	public void formAction(HttpServletRequest request,
+	@RequestMapping("/formAction2")
+	public String formAction(HttpServletRequest request,
 							HttpServletResponse response) throws IOException {
 		
 		String id = request.getParameter("id");
 		
-		PrintWriter out = response.getWriter();
-		out.println("id: " + id);
+		//PrintWriter out = response.getWriter();
+		//out.println("id: " + id);
+		
+		// Object 타입
+		request.setAttribute("id", id);
+		request.setAttribute("id2", id);
+		
+		return "formAction2";
 	}
 	
 	// 02. 폼 컨트롤 ( 어노테이션 방식 - @RequestParam )!
@@ -103,5 +110,27 @@ public class FormActionController {
 		}
 		
 		return "formAction";
+	}
+	
+	// 06. View 인자 넘기기 ( ui.Model 객체 활용하는 방식 )!
+	@RequestMapping("/formActionModel03")
+	public String formActionModel03(@RequestParam("id") String id,
+			                        Model model,
+			                        HttpServletRequest request){
+		
+		model.addAttribute("id",id);
+		request.setAttribute("id2", id);
+		
+		return "formAction2";
 	}	
+
+	// 07. View 인자 넘기기 ( ModelAndView 객체 활용하는 방식 )!
+	@RequestMapping("/formActionModelAndView")
+	public ModelAndView formActionModelAndView(@RequestParam("id") String id){
+		
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("id",id);
+		
+		return modelAndView;
+	}
 }
