@@ -11,8 +11,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import com.javateam.model.Member;
 
 @Controller
 public class FormActionController {
@@ -69,6 +73,35 @@ public class FormActionController {
 //		System.out.println("name: " + params.get("name"));
 //		System.out.println("address: " + params.get("address"));
 				
+		return "formAction";
+	}
+	
+	// 04. 폼 컨트롤 ( Pure POJO 모델 방식  )!
+	@RequestMapping("/formActionModel01")
+	public String formActionModel01(Member member){
+		
+		System.out.println("member id: " + member.getId());
+		System.out.println("member name: " + member.getName());
+		System.out.println("member address: " + member.getAddress());
+		
+		return "formAction";
+	}
+	
+	// 05. 폼 컨트롤 ( @ModelAttribute POJO 모델 방식  )!
+	@RequestMapping("/formActionModel02")
+	public String formActionModel02(@ModelAttribute Member member, BindingResult result){
+		
+		// form validation ( 폼 정검 )
+		// 하이버네이트 JSR-303
+		if(result.hasErrors()){
+			System.out.println("Binding Failed");
+			return "fromSample1";
+		}else{
+			System.out.println("member id: " + member.getId());
+			System.out.println("member name: " + member.getName());
+			System.out.println("member address: " + member.getAddress());
+		}
+		
 		return "formAction";
 	}	
 }

@@ -23,6 +23,7 @@
 	
 	<context:component-scan base-package="com.javateam.sampleprj01" />
 	
-	
+	<!-- 서블릿 콘텍스트에서 모델 패키지를 인식 하도록 component-scan을 추가한다. -->
+	<context:component-scan base-package="com.javateam.model" />
 	
 </beans:beans>
