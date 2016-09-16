@@ -13,6 +13,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -133,4 +135,24 @@ public class FormActionController {
 		
 		return modelAndView;
 	}
+	
+	// 08.폼 컨트롤  ( @RequestBody ) 
+	@RequestMapping("/formActionBody")
+	public void formActionBody(@RequestBody String body){
+		
+		System.out.println(body);
+		String str[] = body.split("&");
+		
+		// 이니스트 포 루프
+		for (String string : str) {
+			System.out.println(string);
+		}
+	}
+	
+	// 09.폼 컨트롤  ( @RequestHeader ) 
+	@RequestMapping("/formActionHeader")
+	public void formActionHeader(@RequestHeader(value="Accept-Language", required=false, defaultValue="ko") String header){
+		
+		System.out.println(header);
+	}	
 }

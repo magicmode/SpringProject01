@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form name="from" method="POST" action="formActionModelAndView">
+	<form name="from" method="POST" action="formActionHeader">
 		<input type="text" id="id" name="id"><br>
 		<input type="text" id="name" name="name"><br>
 		<input type="text" id="address" name="address"><br>
