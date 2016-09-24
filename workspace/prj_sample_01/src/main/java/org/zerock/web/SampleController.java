@@ -66,6 +66,7 @@ public class SampleController {
 		logger.info("doF called..."+ msg);
 	}
 	
+	// 05. JSON 데이터 처리
 	@RequestMapping("doJSON")
 	public @ResponseBody ProductVo doJSON(){
 		
